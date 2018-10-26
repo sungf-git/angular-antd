@@ -1,0 +1,56 @@
+.home-cls {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 99;
+}
+
+.home-cls #home_gdmap_id{
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+.home-cls .mark-list-box {
+	position: absolute;
+	right: 20px;
+	bottom: 20px;
+	width: 350px;
+	z-index: 1;
+	background-color: rgba(255,255,255,0.85)
+}
+
+.mark-list-box .top-box {
+	width: 100%;
+	height: 100%;
+}
+
+.mark-list-box .top-box .box-title {
+	font-size: 15px;
+    text-align: center;
+    padding: 15px;
+}
+
+.mark-list-box .top-box .box-list {
+	    padding: 10px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 450px;
+}
+
+.box-list>li{
+    margin: 18px 5px;
+    padding: 3px 20px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    font-size: 13px;
+    border-radius: 14px;
+}
+
+#my-box-list-id .selectedLi {
+    background-color: #729af6;
+	color: #fff;
+}

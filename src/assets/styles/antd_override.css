@@ -1,0 +1,78 @@
+/*
+ * table的样式定制
+ */
+
+/*行高*/
+.ant-table {
+	line-height: 0.5;
+}
+
+/*文字居中*/
+.ant-table-tbody>tr>td, .ant-table-thead>tr>th {
+	text-align: center;
+}
+
+/*文字溢出省略*/
+.ant-table-tbody>tr>td {
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/*将内联元素转换为行内块级元素，解决（table,thead,tbody,tr,td）宽度不生效以及溢出的问题*/
+.ant-table-body {
+	overflow: hidden;
+}
+.ant-table-body table {
+	overflow-x: hidden;
+	width:100%;
+	display: inline-block;
+}
+.ant-table-thead, .ant-table-thead>tr,
+.ant-table-body table tbody, .ant-table-body table>tbody>tr {
+	display: inline-block;
+    width: 100%;
+}
+.ant-table-thead>tr>th,
+.ant-table-body table>tbody>tr>td {
+	display: inline-block;
+    float: left;
+}
+
+/*td在设置了百分比和最小宽度后，浏览器宽度变化时，td会出现换行的问题，此样式将tr中的td设置为一行*/
+.ant-table-thead .ant-table-row, 
+.ant-table-tbody .ant-table-row {
+	display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+/*checkbox样式,浮动checkbox,防止撑开行高*/
+.ant-table-selection-column{
+	position: relative;
+}
+.ant-checkbox-wrapper {
+	position: absolute;
+    left: 23px;
+    top: 12px;
+}
+
+
+
+/*
+ * button的样式定制
+ */
+
+/*button的默认高度*/
+.ant-btn {
+    height: 28px;
+}
+
+
+
+/*
+ * Divider分割线的样式定制
+ */
+.ant-divider-horizontal {
+	margin: 0;
+}

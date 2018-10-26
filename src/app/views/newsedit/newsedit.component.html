@@ -1,0 +1,23 @@
+<div class="news-edit" id="test">
+	
+	<!--头部-->
+	<div class="title-panel">
+		<a style="color: rgb(0, 179, 238);" routerLink="/main/news">新闻管理</a>
+		>
+		<span>{{pageTitle}}</span>
+	</div>
+	<nz-divider></nz-divider>
+	<div class="editor-operate">
+		<input type="text" class="top-title" [(ngModel)]="newsTitle"/>
+		 <button nz-button nzType="default" (click)="loadOne()" [nzLoading]="isLoadingOne">{{ saveText }}</button>
+	</div>
+	<!--editor-->
+	<div class="content-panel">
+		<form>
+		    <textarea name="editor1" id="editor1" cols="80">
+		        This is my textarea to be replaced with CKEditor.
+		  	</textarea>
+		</form>
+	</div>
+	
+</div>

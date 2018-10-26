@@ -1,0 +1,15 @@
+<div class="header-cls">
+	<div class="header-left flex-center">
+		<div class="logo-img"></div>
+	</div>
+	<div class="header-center flex-center">
+		<div class="nav-panel">
+			<div class="nav-item" *ngFor="let item of navList">
+				<a (click)="changeNav(item)">{{item.name}}</a>
+			</div>
+		</div>
+	</div>
+	<div class="header-right">
+		
+	</div>
+</div>

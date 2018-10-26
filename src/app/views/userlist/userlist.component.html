@@ -1,0 +1,51 @@
+<div class="user-list">
+	<!--头部-->
+	<div class="title-panel">
+		<span>系统管理</span> 
+		>
+		<span>用户管理</span>
+	</div>
+	<nz-divider></nz-divider>
+	<!--高级搜索-->
+	<div class="options-panel">
+		<button nz-button nzType="default" nzSize="small"><i class="anticon anticon-plus"></i>添加</button>
+		<button nz-button nzType="default" nzSize="small" [nzLoading]="removing" (click)="deleteList()"><i class="anticon anticon-delete"></i>删除</button>
+	</div>
+	<!--列表-->
+	<div class="content-panel">
+		<nz-table #rowSelectionTable nzShowSizeChanger [nzScroll]="fixHeader ? tabScrollSet : null" [nzData]="dataSet" nzShowQuickJumper="true" [nzFrontPagination]="false" [nzShowPagination]="false" [nzLoading]="loading" (nzCurrentPageDataChange)="renderTableScroll()" 
+			(nzCurrentPageDataChange)="currentPageDataChange($event)">
+			<thead>
+				<tr>
+					<th nzShowCheckbox [(nzChecked)]="allChecked" [nzIndeterminate]="indeterminate" (nzCheckedChange)="checkAll($event)"></th>
+					<th style="min-width: 100px; width: 15%;">用户类型</th>
+					<th style="min-width: 100px; width: 15%;">用户名</th>
+					<th style="min-width: 120px; width: 10%;">性别</th>
+					<th style="min-width: 120px; width: 15%;">出生日期</th>
+					<th style="min-width: 120px; width: 15%;">手机号码</th>
+					<th style="min-width: 120px; width: 15%;">最后修改时间</th>
+					<th style="min-width: 120px; width: 15%;">最后修改人</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let data of rowSelectionTable.data">
+					<td nzShowCheckbox [(nzChecked)]="data.checked" (nzCheckedChange)="refreshStatus($event)"></td>
+					<td style="min-width: 100px; width: 15%;" [title]="data.type">{{data.type}}</td>
+					<td style="min-width: 100px; width: 15%;" [title]="data.name">
+						<a style="color: rgb(0, 179, 238);">{{data.name}}</a>
+					</td>
+					<td style="min-width: 120px; width: 10%;" [title]="0 == data.sex ? '男':'女'">{{0 == data.sex ? '男':'女'}}</td>
+					<td style="min-width: 120px; width: 15%;" [title]="data.birthday">{{data.birthday}}</td>
+					<td style="min-width: 120px; width: 15%;" [title]="data.phone">{{data.phone}}</td>
+					<td style="min-width: 120px; width: 15%;" [title]="data.lastTime">{{data.lastTime}}</td>
+					<td style="min-width: 120px; width: 15%;" [title]="data.lastUser">{{data.lastUser}}</td>
+				</tr>
+			</tbody>
+		</nz-table>
+
+		<div class="anchor-pagination">
+			<span class="left-total">共{{total}}条数据</span>
+			<nz-pagination nzShowQuickJumper [(nzPageIndex)]="pageIndex" [(nzPageSize)]="pageSize" [nzTotal]="total" [nzShowSizeChanger]="true" (nzPageIndexChange)="changePageIndex()" (nzPageSizeChange)="changePageSize()"></nz-pagination>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,48 @@
+<div class="news-cls">
+	<!--头部-->
+	<div class="title-panel">
+		<span>新闻管理</span>
+		>
+		<span>新闻列表</span>
+	</div>
+	<nz-divider></nz-divider>
+	<!--高级搜索-->
+	<div class="options-panel">
+		 <button nz-button nzType="default" nzSize="small" (click)="goEditPage(null)"><i class="anticon anticon-plus"></i>添加</button>
+		<button nz-button nzType="default" nzSize="small" [nzLoading]="removing" (click)="deleteList()"><i class="anticon anticon-delete"></i>删除</button>
+	</div>
+	<!--列表-->
+	<div class="content-panel">
+	    <nz-table #newsTable nzShowSizeChanger [nzScroll]="fixHeader ? tabScrollSet : null" [nzData]="dataSet" nzShowQuickJumper="true" [nzFrontPagination]="false" [nzShowPagination]="false" [nzLoading]="loading" (nzCurrentPageDataChange)="renderTableScroll()" 
+	    	(nzCurrentPageDataChange)="currentPageDataChange($event)">
+		  <thead>
+		    <tr>
+		      <th nzShowCheckbox [(nzChecked)]="allChecked" [nzIndeterminate]="indeterminate" (nzCheckedChange)="checkAll($event)"></th>
+		      <th style="min-width: 100px; width: 8%;">新闻类别</th>
+		      <th style="min-width: 100px; width: 8%;">新闻标题</th>
+		      <th style="min-width: 120px; width: 8%;">是否推送终端</th>
+		      <th style="width: 56%;">新闻内容</th>
+		      <th style="min-width: 120px; width: 10%;">最后修改时间</th>
+		      <th style="min-width: 120px; width: 10%;">最后修改人</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr *ngFor="let data of newsTable.data">
+		      <td nzShowCheckbox [(nzChecked)]="data.checked" (nzCheckedChange)="refreshStatus($event)"></td>
+		      <td style="min-width: 100px; width: 8%;" [title]="data.category">{{data.category}}</td>
+		      <td style="min-width: 100px; width: 8%;" [title]="data.title"><a style="color: rgb(0, 179, 238);" (click)="goEditPage(data)">{{data.title}}</a></td>
+		      <td style="min-width: 120px; width: 8%;" [title]="0 == data.isSend ? '否':'是'">{{0 == data.isSend ? '否':'是'}}</td>
+		      <td style="width: 56%;" [title]="data.content">{{data.content}}</td>
+		      <td style="min-width: 120px; width: 10%;" [title]="data.lastTime">{{data.lastTime}}</td>
+		      <td style="min-width: 120px; width: 10%;" [title]="data.lastUser">{{data.lastUser}}</td>	
+		    </tr>
+		  </tbody>
+		</nz-table>
+		
+	    <div class="anchor-pagination">
+	      <span class="left-total">共{{total}}条数据</span>
+		  <nz-pagination nzShowQuickJumper [(nzPageIndex)]="pageIndex" [(nzPageSize)]="pageSize" [nzTotal]="total" [nzShowSizeChanger]="true" (nzPageIndexChange)="changePageIndex()" (nzPageSizeChange)="changePageSize()"></nz-pagination>
+	    </div>
+	</div>
+	
+</div>

@@ -1,0 +1,55 @@
+.news-edit {
+	width: 100%;
+    height: 100%;
+    padding: 80px 20px 10px;
+    box-sizing: border-box;
+}
+
+.news-edit .title-panel {
+	width: 100%;
+	height: 40px;
+	margin-top: -80px;
+}
+
+.news-edit .title-panel span {
+	line-height: 40px;
+}
+
+.news-edit .editor-operate {
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	border-bottom: 1px solid #e0e1e5;
+}
+.news-edit .editor-operate .top-title {
+	width: 100%;
+    display: inline-block;
+    background-color: transparent;
+    font-size: 14px;
+    color: rgba(0,0,0,.65);
+    white-space: nowrap;
+    overflow: hidden;
+    padding-left: 20px;
+    padding-right: 200px;
+    border: 0 none;
+    outline: none;
+    text-overflow: ellipsis;
+    -webkit-text-overflow: ellipsis;
+}
+.news-edit .editor-operate [nz-button] {
+    margin-left: -125px;
+}
+
+.news-edit .content-panel {
+	width: 100%;	
+	height: 100%;
+	box-sizing: border-box;
+	position: relative;
+	overflow: hidden;
+	min-width: 768px;
+}
+
+
+
+
+

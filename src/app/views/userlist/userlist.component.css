@@ -1,0 +1,48 @@
+.user-list {
+	width: 100%;
+    height: 100%;
+    padding: 80px 20px 10px;
+    box-sizing: border-box;
+}
+
+.user-list .title-panel {
+	width: 100%;
+	height: 40px;
+	margin-top: -80px;
+}
+.user-list .title-panel span {
+	line-height: 40px;
+}
+
+.user-list .options-panel {
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+}
+
+.user-list .options-panel>button {
+	margin-right: 10px;
+}
+
+.user-list .content-panel {
+	width: 100%;	
+	height: 100%;
+	box-sizing: border-box;
+	position: relative;
+	overflow: hidden;
+	min-width: 768px;
+}
+
+.user-list .content-panel .anchor-pagination {
+	width: 100%;
+    height: 32px;
+    text-align: right;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    box-sizing: content-box;
+}
+
+.user-list .content-panel .left-total {
+	float: left;
+    line-height: 32px;
+}
